@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import AUNetworking
 
 class ViewController: UIViewController {
 
@@ -17,14 +18,14 @@ class ViewController: UIViewController {
 
     func getPopularMovies() {
         Networking.request(router: MovieRouter.popular) { (response: PopularResponseModel?, errorString) in
-            
+
             guard let response = response else { return }
-            
+
             print("iiiiii......\(response)")
-            
+
         } onFailure: { (errorString, errorType) in
             guard let error = errorString else { return }
-            
+
             print(error)
         }
         

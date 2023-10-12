@@ -10,9 +10,6 @@ import SystemConfiguration
 import Network
 
 public class ConnectionManager {
-
-    @available(macOS 10.14, *)
-    static let monitor = NWPathMonitor()
     
     class func isConnectedToNetwork() -> Bool {
 
