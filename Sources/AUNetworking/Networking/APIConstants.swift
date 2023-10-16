@@ -8,8 +8,15 @@
 import Foundation
 
 public struct APIConstants {
+    var _baseURL = "https://api.themoviedb.org/3"
+
     public static var baseURL: String {
-        return "https://api.themoviedb.org/3"
+        get {
+            return _baseURL
+        }
+        set {
+            _baseURL = newValue
+        }
     }
 }
 
