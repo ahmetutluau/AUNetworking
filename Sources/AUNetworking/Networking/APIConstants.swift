@@ -8,7 +8,7 @@
 import Foundation
 
 public struct APIConstants {
-    static var _baseURL = "https://api.themoviedb.org/3"
+    static var _baseURL = "write-your-base-url"
     public static var baseURL: String {
         get {
             return _baseURL
