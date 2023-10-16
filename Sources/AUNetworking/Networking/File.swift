@@ -7,8 +7,8 @@
 
 import Foundation
 
-struct APIConstants {
-    static var baseURL: String {
+public struct APIConstants {
+    public static var baseURL: String {
         return "https://api.themoviedb.org/3"
     }
 }
