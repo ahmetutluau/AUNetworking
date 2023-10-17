@@ -15,7 +15,8 @@
 		4314D4072AD8163C0014C901 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4314D4052AD8163C0014C901 /* LaunchScreen.storyboard */; };
 		4314D4102AD817130014C901 /* MovieRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4314D40F2AD817130014C901 /* MovieRouter.swift */; };
 		4314D4142AD817550014C901 /* PopularResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4314D4132AD817550014C901 /* PopularResponseModel.swift */; };
-		4314D4202AD834430014C901 /* AUNetworking in Frameworks */ = {isa = PBXBuildFile; productRef = 4314D41F2AD834430014C901 /* AUNetworking */; };
+		43AAC4DE2ADED79400B7DEEC /* AUNetworking in Frameworks */ = {isa = PBXBuildFile; productRef = 43AAC4DD2ADED79400B7DEEC /* AUNetworking */; };
+		43AAC4E22ADED8B100B7DEEC /* DetailResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43AAC4E12ADED8B100B7DEEC /* DetailResponseModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,7 @@
 		4314D4082AD8163C0014C901 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4314D40F2AD817130014C901 /* MovieRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieRouter.swift; sourceTree = "<group>"; };
 		4314D4132AD817550014C901 /* PopularResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularResponseModel.swift; sourceTree = "<group>"; };
+		43AAC4E12ADED8B100B7DEEC /* DetailResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailResponseModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -36,7 +38,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4314D4202AD834430014C901 /* AUNetworking in Frameworks */,
+				43AAC4DE2ADED79400B7DEEC /* AUNetworking in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -62,10 +64,10 @@
 		4314D3F92AD8163B0014C901 /* NetworkExample */ = {
 			isa = PBXGroup;
 			children = (
+				4314D3FE2AD8163B0014C901 /* ViewController.swift */,
 				4314D40E2AD8164A0014C901 /* Networking */,
 				4314D3FA2AD8163B0014C901 /* AppDelegate.swift */,
 				4314D3FC2AD8163B0014C901 /* SceneDelegate.swift */,
-				4314D3FE2AD8163B0014C901 /* ViewController.swift */,
 				4314D4002AD8163B0014C901 /* Main.storyboard */,
 				4314D4032AD8163C0014C901 /* Assets.xcassets */,
 				4314D4052AD8163C0014C901 /* LaunchScreen.storyboard */,
@@ -94,9 +96,26 @@
 		4314D4122AD8172C0014C901 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				4314D4132AD817550014C901 /* PopularResponseModel.swift */,
+				43AAC4E02ADED8A400B7DEEC /* Popular */,
+				43AAC4DF2ADED89A00B7DEEC /* Detail */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		43AAC4DF2ADED89A00B7DEEC /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				43AAC4E12ADED8B100B7DEEC /* DetailResponseModel.swift */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
+		43AAC4E02ADED8A400B7DEEC /* Popular */ = {
+			isa = PBXGroup;
+			children = (
+				4314D4132AD817550014C901 /* PopularResponseModel.swift */,
+			);
+			path = Popular;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -116,7 +135,7 @@
 			);
 			name = NetworkExample;
 			packageProductDependencies = (
-				4314D41F2AD834430014C901 /* AUNetworking */,
+				43AAC4DD2ADED79400B7DEEC /* AUNetworking */,
 			);
 			productName = NetworkExample;
 			productReference = 4314D3F72AD8163B0014C901 /* NetworkExample.app */;
@@ -147,7 +166,7 @@
 			);
 			mainGroup = 4314D3EE2AD8163B0014C901;
 			packageReferences = (
-				4314D41E2AD834430014C901 /* XCRemoteSwiftPackageReference "AUNetworking" */,
+				43AAC4DC2ADED79400B7DEEC /* XCRemoteSwiftPackageReference "AUNetworking" */,
 			);
 			productRefGroup = 4314D3F82AD8163B0014C901 /* Products */;
 			projectDirPath = "";
@@ -181,6 +200,7 @@
 				4314D3FB2AD8163B0014C901 /* AppDelegate.swift in Sources */,
 				4314D3FD2AD8163B0014C901 /* SceneDelegate.swift in Sources */,
 				4314D4142AD817550014C901 /* PopularResponseModel.swift in Sources */,
+				43AAC4E22ADED8B100B7DEEC /* DetailResponseModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -398,20 +418,20 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		4314D41E2AD834430014C901 /* XCRemoteSwiftPackageReference "AUNetworking" */ = {
+		43AAC4DC2ADED79400B7DEEC /* XCRemoteSwiftPackageReference "AUNetworking" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/ahmetutluau/AUNetworking";
 			requirement = {
-				branch = main;
-				kind = branch;
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		4314D41F2AD834430014C901 /* AUNetworking */ = {
+		43AAC4DD2ADED79400B7DEEC /* AUNetworking */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 4314D41E2AD834430014C901 /* XCRemoteSwiftPackageReference "AUNetworking" */;
+			package = 43AAC4DC2ADED79400B7DEEC /* XCRemoteSwiftPackageReference "AUNetworking" */;
 			productName = AUNetworking;
 		};
 /* End XCSwiftPackageProductDependency section */
