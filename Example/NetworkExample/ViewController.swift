@@ -12,7 +12,6 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        APIConstants.baseURL = "https://api.themoviedb.org/3"
         getPopularMovies()
         getDetail()
     }

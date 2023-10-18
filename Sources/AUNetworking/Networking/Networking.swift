@@ -8,7 +8,15 @@
 import Foundation
 import Alamofire
 
-public class Networking {
+public protocol NetworkRequester {
+    static func request<T: Decodable>(router: EndpointConfiguration,
+                               thread: DispatchQoS.QoSClass?,
+                               onSuccess: @escaping (T, String?) -> Void,
+                               onFailure: @escaping (String?, NetworkError) -> Void)
+}
+
+public class Networking: NetworkRequester {
+        
      public static func request<T: Decodable>(router: EndpointConfiguration,
                                       thread: DispatchQoS.QoSClass? = nil,
                                       onSuccess: @escaping (T, String?) -> Void,
