@@ -1,6 +1,10 @@
 # AUNetworking
 
-This package is a generic network layer that you can easily use when networking in your projects. I got help from Alamofire while making this package and it is also suitable for writing unit tests.
+This package is a generic network layer that you can easily use when networking in your projects. I got help from Alamofire and Async-await while making this package and it is also suitable for dependency injection and unit tests.
+
+## TECHNOLOGIES
+- Alamofire
+- Async-await
 
 ## Installation
 
