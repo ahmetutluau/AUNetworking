@@ -87,32 +87,51 @@ enum YourRouter: EndpointConfiguration {
 
 
 
-3) import AUNetworking. Write your networking function in your viewController class and active it in viewDidload.  
+3) import AUNetworking. Write your networking function in your viewModel class.
+
+```swift
+import Foundation
+import AUNetworking
+
+class ViewModel {
+    var service: NetworkRequester
+    
+    init(service: NetworkRequester) {
+        self.service = service
+    }
+    
+    func getData() async {
+        do {
+            let response: YourResponseModel? = try await service.request(router: YourRouter.yourEndpoint)
+            guard let response else { return }
+            
+            print(response)
+        } catch {
+            print(error)
+        }
+    }
+    
+}
+
+```
+
+4) call your networking functions in viewController.  
 
 ```swift
 import UIKit
 import AUNetworking
 
 class ViewController: UIViewController {
-
+    let viewModel = ViewModel(service: Networking())
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        getData()
-    }
-
-    func getData() {
-        Networking.request(router: YourRouter.yourEndpoint) { (response: YourResponseModel?, errorString) in
-
-            guard let response = response else { return }
-
-            print("iiiiii......\(response)")
-
-        } onFailure: { (errorString, errorType) in
-            guard let error = errorString else { return }
-
-            print(error)
+        
+        Task {
+            await viewModel.getData()
         }
         
     }
+
 }
 ```
