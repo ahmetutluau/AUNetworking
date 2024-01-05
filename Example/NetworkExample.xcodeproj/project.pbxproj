@@ -17,6 +17,7 @@
 		4314D4142AD817550014C901 /* PopularResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4314D4132AD817550014C901 /* PopularResponseModel.swift */; };
 		43AAC4E22ADED8B100B7DEEC /* DetailResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43AAC4E12ADED8B100B7DEEC /* DetailResponseModel.swift */; };
 		43CD906F2B48031F00AAF202 /* AUNetworking in Frameworks */ = {isa = PBXBuildFile; productRef = 43CD906E2B48031F00AAF202 /* AUNetworking */; };
+		43CD90712B4804E800AAF202 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43CD90702B4804E800AAF202 /* ViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,7 @@
 		4314D40F2AD817130014C901 /* MovieRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieRouter.swift; sourceTree = "<group>"; };
 		4314D4132AD817550014C901 /* PopularResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularResponseModel.swift; sourceTree = "<group>"; };
 		43AAC4E12ADED8B100B7DEEC /* DetailResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailResponseModel.swift; sourceTree = "<group>"; };
+		43CD90702B4804E800AAF202 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +67,7 @@
 			isa = PBXGroup;
 			children = (
 				4314D3FE2AD8163B0014C901 /* ViewController.swift */,
+				43CD90702B4804E800AAF202 /* ViewModel.swift */,
 				4314D40E2AD8164A0014C901 /* Networking */,
 				4314D3FA2AD8163B0014C901 /* AppDelegate.swift */,
 				4314D3FC2AD8163B0014C901 /* SceneDelegate.swift */,
@@ -201,6 +204,7 @@
 				4314D3FD2AD8163B0014C901 /* SceneDelegate.swift in Sources */,
 				4314D4142AD817550014C901 /* PopularResponseModel.swift in Sources */,
 				43AAC4E22ADED8B100B7DEEC /* DetailResponseModel.swift in Sources */,
+				43CD90712B4804E800AAF202 /* ViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -423,7 +427,7 @@
 			repositoryURL = "https://github.com/ahmetutluau/AUNetworking";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.3;
+				minimumVersion = 1.0.4;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
