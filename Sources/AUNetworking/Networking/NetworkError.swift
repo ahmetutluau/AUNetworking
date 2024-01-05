@@ -7,7 +7,7 @@
 
 import Foundation
 
-public enum NetworkError {
+public enum NetworkError: Error {
     case noError
     case credentialsWrong
     case notConnectedInternet

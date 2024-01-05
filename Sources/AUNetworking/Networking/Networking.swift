@@ -9,7 +9,7 @@ import Foundation
 import Alamofire
 
 public protocol NetworkRequester {
-    static func request<T: Decodable>(router: EndpointConfiguration,
+    func request<T: Decodable>(router: EndpointConfiguration,
                                thread: DispatchQoS.QoSClass?,
                                onSuccess: @escaping (T, String?) -> Void,
                                onFailure: @escaping (String?, NetworkError) -> Void)
@@ -17,43 +17,35 @@ public protocol NetworkRequester {
 
 public class Networking: NetworkRequester {
         
-     public static func request<T: Decodable>(router: EndpointConfiguration,
+     public func request<T: Decodable>(router: EndpointConfiguration,
                                       thread: DispatchQoS.QoSClass? = nil,
                                       onSuccess: @escaping (T, String?) -> Void,
                                       onFailure: @escaping (String?, NetworkError) -> Void) {
         switch thread {
         case .background:
             DispatchQueue.global(qos: .background).async {
-                handleRequest(router: router,
+                self.callRequest(router: router,
                               onSuccess: onSuccess,
                               onFailure: onFailure)
             }
         default:
-            handleRequest(router: router,
+            callRequest(router: router,
                           onSuccess: onSuccess,
                           onFailure: onFailure)
         }
     }
     
-    static private func handleRequest<T: Decodable>(router: EndpointConfiguration,
-                                                    onSuccess: @escaping (T, String?) -> Void,
-                                                    onFailure: @escaping (String?, NetworkError) -> Void) {
-        callRequest(router: router,
-                    onSuccess: onSuccess,
-                    onFailure: onFailure)
-    }
-    
-    static private func callRequest<T: Decodable>(router: EndpointConfiguration,
+    private func callRequest<T: Decodable>(router: EndpointConfiguration,
                                                   onSuccess: @escaping (T, String?) -> Void,
                                                   onFailure: @escaping (String?, NetworkError) -> Void) {
         AF.request(router).responseDecodable { (response: AFDataResponse<T?>) in
-            handleResponse(response: response,
+            self.handleResponse(response: response,
                            onSuccess: onSuccess,
                            onFailure: onFailure)
         }
     }
     
-    static private func handleResponse<T: Decodable>(response: AFDataResponse<T?>,
+    private func handleResponse<T: Decodable>(response: AFDataResponse<T?>,
                                                      onSuccess: @escaping (T, String?) -> Void,
                                                      onFailure: @escaping (String?, NetworkError) -> Void) {
         printLog(response: response)
@@ -89,7 +81,7 @@ public class Networking: NetworkRequester {
         }
     }
 
-    static private func printLog<T: Decodable>(response: AFDataResponse<T>) {
+    private func printLog<T: Decodable>(response: AFDataResponse<T>) {
         print("\n\n\n")
         print("🌐🌐🌐🌐🌐🌐🌐🌐🌐🌐🌐🌐🌐🌐🌐🌐🌐🌐🌐🌐🌐")
         debugPrint(response)

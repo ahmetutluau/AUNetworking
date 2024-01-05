@@ -15,8 +15,8 @@
 		4314D4072AD8163C0014C901 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4314D4052AD8163C0014C901 /* LaunchScreen.storyboard */; };
 		4314D4102AD817130014C901 /* MovieRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4314D40F2AD817130014C901 /* MovieRouter.swift */; };
 		4314D4142AD817550014C901 /* PopularResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4314D4132AD817550014C901 /* PopularResponseModel.swift */; };
-		43AAC4DE2ADED79400B7DEEC /* AUNetworking in Frameworks */ = {isa = PBXBuildFile; productRef = 43AAC4DD2ADED79400B7DEEC /* AUNetworking */; };
 		43AAC4E22ADED8B100B7DEEC /* DetailResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43AAC4E12ADED8B100B7DEEC /* DetailResponseModel.swift */; };
+		43CD906F2B48031F00AAF202 /* AUNetworking in Frameworks */ = {isa = PBXBuildFile; productRef = 43CD906E2B48031F00AAF202 /* AUNetworking */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,7 +38,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				43AAC4DE2ADED79400B7DEEC /* AUNetworking in Frameworks */,
+				43CD906F2B48031F00AAF202 /* AUNetworking in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -135,7 +135,7 @@
 			);
 			name = NetworkExample;
 			packageProductDependencies = (
-				43AAC4DD2ADED79400B7DEEC /* AUNetworking */,
+				43CD906E2B48031F00AAF202 /* AUNetworking */,
 			);
 			productName = NetworkExample;
 			productReference = 4314D3F72AD8163B0014C901 /* NetworkExample.app */;
@@ -166,7 +166,7 @@
 			);
 			mainGroup = 4314D3EE2AD8163B0014C901;
 			packageReferences = (
-				43AAC4DC2ADED79400B7DEEC /* XCRemoteSwiftPackageReference "AUNetworking" */,
+				43CD906D2B48031F00AAF202 /* XCRemoteSwiftPackageReference "AUNetworking" */,
 			);
 			productRefGroup = 4314D3F82AD8163B0014C901 /* Products */;
 			projectDirPath = "";
@@ -418,20 +418,20 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		43AAC4DC2ADED79400B7DEEC /* XCRemoteSwiftPackageReference "AUNetworking" */ = {
+		43CD906D2B48031F00AAF202 /* XCRemoteSwiftPackageReference "AUNetworking" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/ahmetutluau/AUNetworking";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.0;
+				minimumVersion = 1.0.3;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		43AAC4DD2ADED79400B7DEEC /* AUNetworking */ = {
+		43CD906E2B48031F00AAF202 /* AUNetworking */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 43AAC4DC2ADED79400B7DEEC /* XCRemoteSwiftPackageReference "AUNetworking" */;
+			package = 43CD906D2B48031F00AAF202 /* XCRemoteSwiftPackageReference "AUNetworking" */;
 			productName = AUNetworking;
 		};
 /* End XCSwiftPackageProductDependency section */

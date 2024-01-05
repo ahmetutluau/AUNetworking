@@ -6,3 +6,15 @@
 //
 
 import Foundation
+
+extension NetworkRequester {
+    func request<T: Decodable>(router: EndpointConfiguration,
+                              thread: DispatchQoS.QoSClass? = nil,
+                              onSuccess: @escaping (T, String?) -> Void,
+                               onFailure: @escaping (String?, NetworkError) -> Void) {
+        request(router: router,
+                thread: thread,
+                onSuccess: onSuccess,
+                onFailure: onFailure)
+    }
+}

@@ -1,0 +1,23 @@
+{
+  "pins" : [
+    {
+      "identity" : "alamofire",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/Alamofire/Alamofire.git",
+      "state" : {
+        "revision" : "b2fa556e4e48cbf06cf8c63def138c98f4b811fa",
+        "version" : "5.8.0"
+      }
+    },
+    {
+      "identity" : "aunetworking",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/ahmetutluau/AUNetworking",
+      "state" : {
+        "revision" : "8c00c8313759f42e77ea7553f0949963b95311ed",
+        "version" : "1.0.3"
+      }
+    }
+  ],
+  "version" : 2
+}
