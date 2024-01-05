@@ -9,7 +9,6 @@ import Foundation
 import AUNetworking
 
 class ViewModel {
-    
     var service: NetworkRequester
     
     init(service: NetworkRequester) {
@@ -17,33 +16,15 @@ class ViewModel {
     }
     
     //    https://developer.themoviedb.org/reference/movie-popular-list
-        func getPopularMovies() {
-            service.request(router: MovieRouter.popular) { (response: PopularResponseModel?, errorString) in
-
-                guard let response = response else { return }
-
-                print("iiiiii......\(response)")
-
-            } onFailure: { (errorString, errorType) in
-                guard let error = errorString else { return }
-
-                print(error)
-            }
+    func getPopularMoviesAsync() async {
+        do {
+            let response: PopularResponseModel? = try await service.request(router: MovieRouter.popular)
+            guard let response else { return }
             
+            print(response.results[0].overview)
+        } catch {
+            print(error)
         }
-        
-    //    https://developer.themoviedb.org/reference/movie-details
-        func getDetail() {
-            service.request(router: MovieRouter.detail(646389)) { (response: DetailResponseModel?, errorString) in
-                
-                guard let response = response else { return }
-                
-                print("iiiiii......\(response)")
-                
-            } onFailure: { (errorString, errorType) in
-                guard let error = errorString else { return }
-                
-                print(error)
-            }
-        }
+    }
+    
 }

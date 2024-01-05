@@ -5,7 +5,9 @@ import PackageDescription
 
 let package = Package(
     name: "AUNetworking",
-    products: [
+    platforms: [
+        .macOS(.v10_15),.iOS(.v13) // minimum iOS, macOS version
+    ], products: [
         .library(
             name: "AUNetworking",
             targets: ["AUNetworking"]),

@@ -9,16 +9,26 @@ import Foundation
 import Alamofire
 
 public protocol NetworkRequester {
-    func request<T: Decodable>(router: EndpointConfiguration,
-                               thread: DispatchQoS.QoSClass?,
-                               onSuccess: @escaping (T, String?) -> Void,
-                               onFailure: @escaping (String?, NetworkError) -> Void)
+    func request<T: Decodable>(router: EndpointConfiguration) async throws -> T
 }
 
 public class Networking: NetworkRequester {
     
     public init() { }
         
+    public func request<T: Decodable>(router: EndpointConfiguration) async throws -> T {
+        try await withCheckedThrowingContinuation { continuation in
+            request(router: router) { (response: T, _) in
+                continuation.resume(returning: response)
+            } onFailure: { errorString, errorType in
+
+                continuation.resume(throwing: errorType)
+            }
+
+        }
+    }
+    
+    @available(*, deprecated, renamed: "request(router:)")
     public func request<T: Decodable>(router: EndpointConfiguration,
                                       thread: DispatchQoS.QoSClass? = nil,
                                       onSuccess: @escaping (T, String?) -> Void,
@@ -27,13 +37,13 @@ public class Networking: NetworkRequester {
         case .background:
             DispatchQueue.global(qos: .background).async {
                 self.callRequest(router: router,
-                              onSuccess: onSuccess,
-                              onFailure: onFailure)
+                            onSuccess: onSuccess,
+                            onFailure: onFailure)
             }
         default:
             callRequest(router: router,
-                          onSuccess: onSuccess,
-                          onFailure: onFailure)
+                        onSuccess: onSuccess,
+                        onFailure: onFailure)
         }
     }
     

@@ -9,13 +9,15 @@ import UIKit
 import AUNetworking
 
 class ViewController: UIViewController {
-
     let viewModel = ViewModel(service: Networking())
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewModel.getPopularMovies()
-        viewModel.getDetail()
+        
+        Task {
+            await viewModel.getPopularMoviesAsync()
+        }
+        
     }
 
 }
