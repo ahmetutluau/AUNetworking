@@ -29,7 +29,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
-        APIConstants.baseURL = "https://api.themoviedb.org/3"
+        APIConstants.baseURL = "https://write-your-base-url"
 
         return true
     }
