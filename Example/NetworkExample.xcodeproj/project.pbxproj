@@ -427,7 +427,7 @@
 			repositoryURL = "https://github.com/ahmetutluau/AUNetworking";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 3.0.0;
+				minimumVersion = 3.0.1;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */

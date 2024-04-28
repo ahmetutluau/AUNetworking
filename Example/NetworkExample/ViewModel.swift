@@ -18,7 +18,7 @@ class ViewModel {
     //    https://developer.themoviedb.org/reference/movie-popular-list
     func getPopularMoviesAsync() async {
         do {
-            let response: PopularResponseModel? = try await service.request(router: MovieRouter.popular)
+            let response: PopularResponseModel? = try await service.request(MovieRouter.popular)
             guard let response else { return }
             
             print(response.results[0].overview)

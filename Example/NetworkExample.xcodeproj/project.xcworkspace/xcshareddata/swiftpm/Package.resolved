@@ -5,8 +5,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/ahmetutluau/AUNetworking",
       "state" : {
-        "revision" : "a42cb7e123ead461d6a540a07353a803eaa45fb4",
-        "version" : "3.0.0"
+        "revision" : "34caa0a3614f85d81a36da63d1fa8b8b2d97a681",
+        "version" : "3.0.1"
       }
     }
   ],

@@ -108,7 +108,7 @@ class ViewModel {
     
     func getData() async {
         do {
-            let response: YourResponseModel? = try await service.request(router: YourRouter.yourEndpoint)
+            let response: YourResponseModel? = try await service.request(YourRouter.yourEndpoint)
             guard let response else { return }
             
             print(response)
