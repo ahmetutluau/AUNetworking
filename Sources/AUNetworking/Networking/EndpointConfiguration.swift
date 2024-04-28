@@ -23,42 +23,75 @@ SOFTWARE.
 */
 
 import Foundation
-import Alamofire
 
 public typealias QueryStringParameters = [String: String]?
+public typealias MultipartFormData = [(name: String, filename: String, data: Data)]?
 
-public protocol EndpointConfiguration: URLRequestConvertible {
+//All endpoint routers will confirm this protocol
+public protocol EndpointConfiguration {
     var method: HTTPMethod { get }
     var path: String { get }
     var queryParameters: QueryStringParameters { get }
     var httpBody: Data? { get }
     var headers: [CustomHTTPHeader]? { get }
+    var multipartFormData: MultipartFormData  { get }
 }
 
 public extension EndpointConfiguration {
-    func asURLRequest() throws -> URLRequest {
-        let url = try (APIConstants.baseURL + path).asURL()
+    func makeUrlRequest() -> URLRequest {
+        guard var components = URLComponents(string: APIConstants.baseURL + path) else { fatalError("Invalid base URL") }
         
-        var urlComponents = URLComponents(string: url.absoluteString)
+        //Create request
+        var request = URLRequest(url: components.url!)
+        request.httpMethod = method.rawValue
         
-        //Query Parameters
-        urlComponents?.queryItems = queryParameters?.map { key, value in
-            return URLQueryItem(name: key, value: value)
+        //Add queryParams
+        if let queryParams = queryParameters {
+            // For GET requests, append query parameters to the URL
+
+            if method == .GET {
+                var queryItems: [URLQueryItem] = []
+                for (key, value) in queryParams {
+                    let queryItem = URLQueryItem(name: key, value: String(describing: value))
+                    queryItems.append(queryItem)
+                }
+                components.queryItems = queryItems
+                request.url = components.url
+                
+            } else {
+                // For other methods, add query parameters to the request body
+                do {
+                    let data = try JSONSerialization.data(withJSONObject: queryParams)
+                    request.httpBody = data
+                } catch {
+                    print(error.localizedDescription)
+                }
+            }
         }
+        
+        //Add body
+        request.httpBody = httpBody
 
-        var urlRequest = URLRequest(url: (urlComponents?.url!)!)
-
-        //HTTP Method
-        urlRequest.httpMethod = method.rawValue
-
-        //Headers
+        
+        //Add header
         headers?.forEach({ header in
-            urlRequest.setValue(header.value, forHTTPHeaderField: header.key)
+            request.setValue(header.value, forHTTPHeaderField: header.key)
         })
-
-        //Parameters
-        urlRequest.httpBody = httpBody
-
-        return urlRequest
+        
+        //Add multipart form data
+        if let multipartFormData = multipartFormData {
+            let boundary = "Boundary-\(UUID().uuidString)"
+            request.setValue("multipart/form-data; boundary=\(boundary)", forHTTPHeaderField: "Content-Type")
+            
+            for formData in multipartFormData {
+                request.httpBody?.append("--\(boundary)\r\n".data(using: .utf8)!)
+                request.httpBody?.append("Content-Disposition: form-data; name=\"\(formData.name)\"; filename=\"\(formData.filename)\"\r\n".data(using: .utf8)!)
+                request.httpBody?.append("Content-Type: application/octet-stream\r\n\r\n".data(using: .utf8)!)
+                request.httpBody?.append(formData.data)
+                request.httpBody?.append("\r\n".data(using: .utf8)!)
+            }
+        }
+        
+        return request
     }
 }

@@ -25,13 +25,8 @@ SOFTWARE.
 import Foundation
 
 public enum NetworkError: Error {
-    case noError
-    case credentialsWrong
-    case notConnectedInternet
-    case serviceResponseFailed
-    case conflictCredentials
-    case emptyOrNil
-    case authenticationLocked
-    case notValidOtpCode
-    case redirectAuth
+    case invalidURL
+    case requestFailed
+    case invalidResponse
+    case decodingError
 }

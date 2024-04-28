@@ -24,11 +24,9 @@ SOFTWARE.
 
 import Foundation
 
-extension String {
-    public func convertToDictionary() -> [String: Any]? {
-        if let data = data(using: .utf8) {
-            return try? JSONSerialization.jsonObject(with: data, options: []) as? [String: Any]
-        }
-        return nil
-    }
+public enum HTTPMethod: String {
+    case GET
+    case POST
+    case PUT
+    case DELETE
 }

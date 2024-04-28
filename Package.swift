@@ -12,13 +12,9 @@ let package = Package(
             name: "AUNetworking",
             targets: ["AUNetworking"]),
     ],
-    dependencies: [
-        .package(url: "https://github.com/Alamofire/Alamofire.git", .upToNextMajor(from: "5.8.0"))
-    ],
     targets: [
         .target(
             name: "AUNetworking",
-            dependencies: ["Alamofire"],
             path: "Sources")
     ]
 )
