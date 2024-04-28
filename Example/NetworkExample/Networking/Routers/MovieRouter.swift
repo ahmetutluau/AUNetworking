@@ -7,19 +7,18 @@
 
 import Foundation
 import AUNetworking
-import Alamofire
 
 enum MovieRouter: EndpointConfiguration {
-    
+        
     case popular
     case detail(Int)
     
     var method: HTTPMethod {
         switch self {
         case .popular:
-            return .get
+            return .GET
         case .detail:
-            return .get
+            return .GET
         }
     }
     
@@ -46,4 +45,9 @@ enum MovieRouter: EndpointConfiguration {
     var headers: [CustomHTTPHeader]? {
         return nil
     }
+    
+    var multipartFormData: MultipartFormData {
+        return nil
+    }
+
 }

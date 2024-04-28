@@ -1,9 +1,8 @@
 # AUNetworking
 
-This package is a generic network layer that you can easily use when networking in your projects. I got help from Alamofire and Async-await while making this package and it is also suitable for dependency injection and unit tests.
+This package is a generic network layer that you can easily use when networking in your projects. I got help from URLSession and Async-await while making this package and it is also suitable for dependency injection and unit tests.
 
 ## Technologies
-- Alamofire
 - Async-await
 
 ## Installation
@@ -46,12 +45,11 @@ struct YourResponseModel: Codable {
 }
 ```
 
-3) import AUNetworking and Alamofire. Create your endpointConfiguration enum/struct by EndpointConfiguration protocol and give your method,path,queryParameters,httpBody,headers.  
+3) import AUNetworking. Create your endpointConfiguration enum/struct by EndpointConfiguration protocol and give your method,path,queryParameters,httpBody,headers.  
 
 ```swift
 import Foundation
 import AUNetworking
-import Alamofire
 
 enum YourRouter: EndpointConfiguration {
     
@@ -60,7 +58,7 @@ enum YourRouter: EndpointConfiguration {
     var method: HTTPMethod {
         switch self {
         case .yourEndpoint:
-            return .get
+            return .GET
         }
     }
     
@@ -83,6 +81,10 @@ enum YourRouter: EndpointConfiguration {
     }
     
     var headers: [CustomHTTPHeader]? {
+        return nil
+    }
+    
+    var multipartFormData: MultipartFormData {
         return nil
     }
 }

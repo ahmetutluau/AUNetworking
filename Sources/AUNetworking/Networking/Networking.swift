@@ -22,7 +22,6 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 import Foundation
-import Alamofire
 
 public protocol NetworkRequester {
     func request<T: Decodable>(_ router: EndpointConfiguration) async throws -> T
